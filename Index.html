@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fleur Harding Facialist – Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter & Lora fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <!-- AOS Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Heroicons for icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    :root {
+      --bg-main-light: #F6FAF9;
+      --card-glass-light: rgba(255,255,255,0.65);
+      --accent-light: #F7D9C4;
+      --primary-light: #B8C9B1;
+      --text-main-light: #3D4A40;
+      --text-secondary-light: #7B8A78;
+
+      --bg-main-dark: #456d59;
+      --card-glass-dark: rgba(44,53,49,0.75);
+      --accent-dark: #B69B8D;
+      --primary-dark: #425C52;
+      --text-main-dark: #F5F5F4;
+      --text-secondary-dark: #AEC3B0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-main-light);
+      font-family: 'Inter', 'Lora', serif;
+      transition: background 0.4s cubic-bezier(.4,0,.2,1);
+    }
+
+    .glass {
+      background: var(--card-glass-light);
+      backdrop-filter: blur(14px) saturate(140%);
+      border-radius: 1.25rem;
+      box-shadow: 0 6px 32px 0 rgba(140,160,150,0.10), 0 1.5px 4px 0 rgba(140,160,150,0.08);
+      border: 1px solid rgba(200,200,200,0.13);
+      transition: background 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+    }
+
+    .glass-dark {
+      background: var(--card-glass-dark);
+      border: 1px solid rgba(60,60,60,0.15);
+      box-shadow: 0 6px 32px 0 rgba(44,53,49,0.13), 0 1.5px 4px 0 rgba(44,53,49,0.08);
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+    }
+
+    /* Subtle noise overlay */
+    .noise-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.12;
+      background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+      mix-blend-mode: multiply;
+      transition: opacity .3s;
+    }
+
+    /* Petal animation */
+    .petal {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.12;
+      animation: floatPetal 18s linear infinite;
+      z-index: 1;
+    }
+    @keyframes floatPetal {
+      0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0.20;
+      }
+      30% {
+        opacity: 0.22;
+      }
+      60% {
+        opacity: 0.18;
+      }
+      100% {
+        transform: translateY(-28vh) scale(1.1) rotate(28deg);
+        opacity: 0.15;
+      }
+    }
+
+    /* Dark mode overrides */
+    .dark body {
+      background: var(--bg-main-dark);
+    }
+    .dark .glass {
+      background: var(--card-glass-dark);
+      border: 1px solid rgba(60,60,60,0.13);
+      box-shadow: 0 6px 32px 0 rgba(44,53,49,0.13), 0 1.5px 4px 0 rgba(44,53,49,0.08);
+    }
+    .dark .noise-bg {
+      opacity: 0.18;
+    }
+  </style>
+</head>
+<body class="relative text-[#3D4A40] dark:text-[#F5F5F4] transition-colors duration-400">
+  <!-- Noise Texture Overlay -->
+  <div class="noise-bg"></div>
+  <!-- Soft Animated Petals/Bubbles -->
+  <svg class="petal" style="left:10vw;top:60vh;width:48px;height:48px;animation-delay:2s;">
+    <ellipse cx="24" cy="24" rx="18" ry="9" fill="#B8C9B1"/>
+  </svg>
+  <svg class="petal" style="left:85vw;top:75vh;width:38px;height:38px;animation-delay:0s;">
+    <ellipse cx="19" cy="19" rx="14" ry="7" fill="#F7D9C4"/>
+  </svg>
+  <svg class="petal" style="left:42vw;top:85vh;width:35px;height:35px;animation-delay:6s;">
+    <ellipse cx="17" cy="17" rx="12" ry="6" fill="#AEC3B0"/>
+  </svg>
+  <svg class="petal" style="left:60vw;top:70vh;width:40px;height:40px;animation-delay:3s;">
+    <ellipse cx="20" cy="20" rx="13" ry="8" fill="#E2E6DF"/>
+  </svg>
+
+  <!-- NAVBAR -->
+  <header id="header" class="fixed w-full z-30 top-0 left-0 bg-white/60 dark:bg-[#181C1A]/80 backdrop-blur-lg shadow-sm transition-colors">
+    <nav class="max-w-6xl mx-auto px-4 lg:px-8 flex justify-between items-center h-16 relative">
+      <span class="font-lora font-bold text-xl tracking-tight select-none flex items-center gap-2">
+        <span class="inline-block w-7 h-7 rounded-full bg-[#B8C9B1] dark:bg-[#425C52] flex items-center justify-center"><span style="font-size:1.3em">🧖‍♀️</span></span>
+        Fleur Harding
+      </span>
+      <ul class="flex gap-7 font-semibold text-base items-center">
+        <li><a href="#home" class="hover:text-[#B8C9B1] dark:hover:text-[#AEC3B0] transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-[#B8C9B1] dark:hover:text-[#AEC3B0] transition-colors">About</a></li>
+        <li><a href="#treatments" class="hover:text-[#B8C9B1] dark:hover:text-[#AEC3B0] transition-colors">Treatments</a></li>
+        <li><a href="#contact" class="hover:text-[#B8C9B1] dark:hover:text-[#AEC3B0] transition-colors">Contact</a></li>
+        <li>
+           <a href="mailto:Hardingfleur5@gmail.com" class="ml-1 px-4 py-2 rounded-full bg-[#F7D9C4] text-[#3D4A40] font-bold dark:bg-[#B69B8D] dark:text-[#181C1A] shadow-md shadow-[#f7d9c43b] hover:scale-105 hover:shadow-lg transition-all duration-200">Book Now</a>
+         
+        </li>
+       
+
+        <li>
+          <button id="darkToggle" class="ml-2 w-9 h-9 rounded-full bg-[#E2E6DF] dark:bg-[#2C3531] flex items-center justify-center transition-all border border-transparent dark:border-[#425C52]" aria-label="Toggle dark/light mode">
+            <svg id="sunIcon" class="block dark:hidden" width="23" height="23" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5.5" stroke="#B8C9B1" stroke-width="2"/><g stroke="#B8C9B1" stroke-width="2"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></g></svg>
+            <svg id="moonIcon" class="hidden dark:block" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 13.5C20.6 13.5 20.2 13.5 19.8 13.5C18.8 16.1 16.1 18 13 18C9.1 18 6 14.9 6 11C6 8.4 7.7 6.2 10.1 5.3C10 5.2 10 5.1 10 5C10 4.4 10.4 4 11 4C16 4 20 8 20 13C20 13.2 20 13.4 20 13.5H21Z" fill="#B69B8D"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="relative flex flex-col justify-center items-center min-h-[95vh] pt-32 pb-16 px-4 bg-gradient-to-br from-[#F6FAF9] to-[#E2E6DF] dark:from-[#181C1A] dark:to-[#2C3531] transition-colors duration-500">
+      <div class="w-full max-w-2xl glass p-10 flex flex-col items-center text-center relative z-10" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://picsum.photos/seed/face-spa/170/170" alt="Fleur Harding" class="w-32 h-32 rounded-full border-4 border-[#E2E6DF] dark:border-[#425C52] mb-5 shadow-xl object-cover bg-[#b8c9b128]" />
+        <h1 class="text-4xl md:text-5xl font-lora font-bold mb-2 text-[#3D4A40] dark:text-[#F5F5F4]">Fleur Harding Facialist</h1>
+        <p class="mb-6 text-lg text-[#7B8A78] dark:text-[#AEC3B0] font-medium">Boutique Beauty Salon on Waiheke Island</p>
+        <p class="text-base md:text-lg mb-8 text-[#3D4A40] dark:text-[#F5F5F4]">We use <span class="font-semibold text-[#B8C9B1] dark:text-[#AEC3B0]">award-winning Environ Skincare</span> in our facials.</p>
+        <a href="#booking" class="inline-block px-7 py-3 rounded-full bg-[#F7D9C4] text-[#3D4A40] font-bold text-lg shadow-md hover:scale-105 hover:shadow-xl transition-all duration-200 dark:bg-[#B69B8D] dark:text-[#181C1A]">Book Now</a>
+      </div>
+      <!-- Ken Burns slow zoom BG image -->
+      <div class="absolute inset-0 -z-10">
+        <div class="w-full h-full absolute overflow-hidden rounded-none">
+          <img src="https://picsum.photos/seed/spa-flower/1440/900" alt="" class="w-full h-full object-cover opacity-80 animate-[kenburns_24s_linear_infinite_alternate]"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="relative py-20 px-4 bg-transparent">
+      <div class="max-w-4xl mx-auto glass p-10 grid md:grid-cols-2 gap-10 items-center" data-aos="fade-right" data-aos-delay="150">
+        <div class="flex flex-col">
+          <span class="section-title text-2xl text-[#B8C9B1] dark:text-[#AEC3B0] mb-3">About Me</span>
+          <h2 class="text-3xl font-bold mb-4 text-[#3D4A40] dark:text-[#F5F5F4]">Meet Fleur</h2>
+          <p class="text-lg text-[#7B8A78] dark:text-[#AEC3B0] mb-3">With years of experience and a passion for natural beauty, I offer a personalized, tranquil facial experience on beautiful Waiheke Island. My approach blends proven techniques, gentle touch, and award-winning products to help you look and feel your best.</p>
+          <ul class="flex flex-wrap gap-3 mt-4">
+            <li class="bg-[#F7D9C4]/80 text-[#3D4A40] px-4 py-1 rounded-full text-sm font-semibold dark:bg-[#B69B8D]/90 dark:text-[#181C1A]">Environ Skincare</li>
+            <li class="bg-[#B8C9B1]/70 text-[#3D4A40] px-4 py-1 rounded-full text-sm font-semibold dark:bg-[#425C52]/70 dark:text-[#F5F5F4]">Personalized Treatments</li>
+            <li class="bg-[#E2E6DF]/90 text-[#3D4A40] px-4 py-1 rounded-full text-sm font-semibold dark:bg-[#2C3531]/80 dark:text-[#F5F5F4]">Waiheke Island</li>
+          </ul>
+        </div>
+        <img src="https://picsum.photos/seed/fleur-portrait/330/350" alt="Fleur Harding Portrait" class="rounded-3xl shadow-lg border-2 border-[#E2E6DF] dark:border-[#425C52] object-cover w-full h-[350px] bg-[#b8c9b128]" />
+      </div>
+    </section>
+
+    <!-- TREATMENTS -->
+    <section id="treatments" class="relative py-24 px-4 bg-gradient-to-tr from-[#E2E6DF]/60 to-[#F6FAF9]/80 dark:from-[#2C3531]/60 dark:to-[#181C1A]/80 transition-colors duration-500">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="section-title text-center text-3xl md:text-4xl mb-14 text-[#B8C9B1] dark:text-[#AEC3B0]">Treatment Menu</h2>
+        <div class="grid md:grid-cols-4 gap-7">
+          <!-- Treatment Card 1 -->
+          <div class="glass p-7 flex flex-col items-center text-center group hover:scale-105 hover:shadow-2xl transition-all duration-250" data-aos="fade-up" data-aos-delay="80">
+            <span class="mb-2 text-4xl inline-block"><span style="font-size:1.7em">💧</span></span>
+            <h3 class="text-xl font-semibold mb-2">Facials</h3>
+            <p class="text-[#7B8A78] dark:text-[#AEC3B0] text-sm">Individually tailored facials using premium Environ skincare to nourish and rejuvenate your skin.</p>
+          </div>
+          <!-- Treatment Card 2 -->
+          <div class="glass p-7 flex flex-col items-center text-center group hover:scale-105 hover:shadow-2xl transition-all duration-250" data-aos="fade-up" data-aos-delay="120">
+            <span class="mb-2 text-4xl inline-block"><span style="font-size:1.7em">👁️</span></span>
+            <h3 class="text-xl font-semibold mb-2">Eye Enhancers</h3>
+            <p class="text-[#7B8A78] dark:text-[#AEC3B0] text-sm">Brow shaping, lash tinting, and treatments to define and enhance your natural features.</p>
+          </div>
+          <!-- Treatment Card 3 -->
+          <div class="glass p-7 flex flex-col items-center text-center group hover:scale-105 hover:shadow-2xl transition-all duration-250" data-aos="fade-up" data-aos-delay="160">
+            <span class="mb-2 text-4xl inline-block"><span style="font-size:1.7em">✨</span></span>
+            <h3 class="text-xl font-semibold mb-2">Electrolysis & Red Vein</h3>
+            <p class="text-[#7B8A78] dark:text-[#AEC3B0] text-sm">Safe, effective treatments for permanent hair removal and red vein reduction.</p>
+          </div>
+          <!-- Treatment Card 4 -->
+          <div class="glass p-7 flex flex-col items-center text-center group hover:scale-105 hover:shadow-2xl transition-all duration-250" data-aos="fade-up" data-aos-delay="200">
+            <span class="mb-2 text-4xl inline-block"><span style="font-size:1.7em">🦶</span></span>
+            <h3 class="text-xl font-semibold mb-2">Waxing & Pedicures</h3>
+            <p class="text-[#7B8A78] dark:text-[#AEC3B0] text-sm">Gentle waxing for smooth skin and pampering pedicures to leave your feet refreshed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS & SKINCARE -->
+    <section class="relative py-16 px-4">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 glass" data-aos="fade-left" data-aos-delay="200">
+        <img src="https://picsum.photos/seed/environ/100/100" alt="Environ Skincare" class="w-24 h-24 object-cover rounded-lg border-2 border-[#E2E6DF] dark:border-[#425C52] bg-[#b8c9b128]"/>
+        <div>
+          <h4 class="section-title text-xl mb-2 text-[#B8C9B1] dark:text-[#AEC3B0]">Award Winning</h4>
+          <p class="text-lg font-semibold text-[#3D4A40] dark:text-[#F5F5F4]">Environ Skincare</p>
+          <ul class="mt-1 text-[#7B8A78] dark:text-[#AEC3B0]">
+            <li>• Lifetime Achievement Award in Skincare</li>
+            <li>• Top Medical Skincare (USA, 5 years running)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="relative py-20 px-4 bg-transparent">
+      <div class="max-w-3xl mx-auto glass p-10" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="section-title text-xl mb-6 text-[#B8C9B1] dark:text-[#AEC3B0] text-center">What Clients Say</h2>
+        <div class="swiper" id="testimonialSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide text-center px-4">
+              <blockquote class="text-lg font-medium text-[#3D4A40] dark:text-[#F5F5F4] italic mb-3">"The most relaxing facial experience I’ve ever had. My skin glowed for days!"</blockquote>
+              <span class="text-sm text-[#B8C9B1] dark:text-[#AEC3B0]">– Emily, Oneroa</span>
+            </div>
+            <div class="swiper-slide text-center px-4">
+              <blockquote class="text-lg font-medium text-[#3D4A40] dark:text-[#F5F5F4] italic mb-3">"Fleur is so knowledgeable and caring. Highly recommended!"</blockquote>
+              <span class="text-sm text-[#B8C9B1] dark:text-[#AEC3B0]">– Sarah, Auckland</span>
+            </div>
+            <div class="swiper-slide text-center px-4">
+              <blockquote class="text-lg font-medium text-[#3D4A40] dark:text-[#F5F5F4] italic mb-3">"My favorite self-care treat on Waiheke Island."</blockquote>
+              <span class="text-sm text-[#B8C9B1] dark:text-[#AEC3B0]">– Kate, Waiheke</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="relative py-24 px-4 bg-gradient-to-br from-[#F6FAF9]/90 to-[#E2E6DF]/80 dark:from-[#181C1A]/90 dark:to-[#2C3531]/80 transition-colors duration-500">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 glass p-10" data-aos="fade-up" data-aos-delay="80">
+        <div>
+          <h3 class="section-title text-2xl mb-4 text-[#B8C9B1] dark:text-[#AEC3B0]">Contact</h3>
+          <ul class="mb-6">
+            <li class="mb-2 flex items-center gap-2"><span class="font-semibold">Email:</span> <a href="mailto:Hardingfleur5@gmail.com" class="text-[#7B8A78] dark:text-[#AEC3B0] hover:underline">Hardingfleur5@gmail.com</a></li>
+            <li class="mb-2 flex items-center gap-2"><span class="font-semibold">Text:</span> <a href="sms:021883527" class="text-[#7B8A78] dark:text-[#AEC3B0] hover:underline">021 883 527</a></li>
+          </ul>
+          <div class="text-sm text-[#7B8A78] dark:text-[#AEC3B0]">Waiheke Island, New Zealand</div>
+        </div>
+        <form class="flex flex-col gap-6" autocomplete="off" id="contactForm" novalidate>
+          <div>
+            <label class="block mb-1 text-[#3D4A40] dark:text-[#F5F5F4] font-semibold" for="name">Name</label>
+            <input id="name" name="name" type="text" required class="w-full rounded-lg px-4 py-3 border border-[#E2E6DF] dark:border-[#425C52] bg-[#ffffffb3] dark:bg-[#2C3531bb] text-[#3D4A40] dark:text-[#F5F5F4] shadow-md focus:ring-2 focus:ring-[#B8C9B1] dark:focus:ring-[#425C52] transition-all duration-150 outline-none" placeholder="Your Name" />
+            <span class="mt-1 text-xs text-red-400 hidden" id="nameErr">Please enter your name</span>
+          </div>
+          <div>
+            <label class="block mb-1 text-[#3D4A40] dark:text-[#F5F5F4] font-semibold" for="email">Email</label>
+            <input id="email" name="email" type="email" required class="w-full rounded-lg px-4 py-3 border border-[#E2E6DF] dark:border-[#425C52] bg-[#ffffffb3] dark:bg-[#2C3531bb] text-[#3D4A40] dark:text-[#F5F5F4] shadow-md focus:ring-2 focus:ring-[#B8C9B1] dark:focus:ring-[#425C52] transition-all duration-150 outline-none" placeholder="hello@email.com" />
+            <span class="mt-1 text-xs text-red-400 hidden" id="emailErr">Enter a valid email</span>
+          </div>
+          <div>
+            <label class="block mb-1 text-[#3D4A40] dark:text-[#F5F5F4] font-semibold" for="msg">Message</label>
+            <textarea id="msg" name="msg" required rows="3" class="w-full rounded-lg px-4 py-3 border border-[#E2E6DF] dark:border-[#425C52] bg-[#ffffffb3] dark:bg-[#2C3531bb] text-[#3D4A40] dark:text-[#F5F5F4] shadow-md focus:ring-2 focus:ring-[#B8C9B1] dark:focus:ring-[#425C52] transition-all duration-150 outline-none" placeholder="How can I help you?"></textarea>
+            <span class="mt-1 text-xs text-red-400 hidden" id="msgErr">Please enter a message</span>
+          </div>
+          <button type="submit" class="px-6 py-3 rounded-full bg-[#F7D9C4] text-[#3D4A40] font-bold text-lg shadow-md hover:scale-105 hover:shadow-xl transition-all duration-200 dark:bg-[#B69B8D] dark:text-[#181C1A]">Send Message</button>
+          <div class="text-green-500 text-sm hidden" id="successMsg">Message sent! Thank you.</div>
+        </form>
+      </div>
+    </section>
+    <!-- BOOKING (Anchor Only) -->
+    <div id="booking" tabindex="-1" aria-hidden="true"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative py-8 px-4 bg-[#E2E6DF]/60 dark:bg-[#2C3531]/60 transition-colors duration-500 text-center text-[#7B8A78] dark:text-[#AEC3B0]">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <ul class="flex gap-6 justify-center mb-4 md:mb-0">
+        <li><a href="#home" class="hover:underline">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#treatments" class="hover:underline">Treatments</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-6 h-6 rounded-full bg-[#B8C9B1] dark:bg-[#425C52] flex items-center justify-center"><span style="font-size:1em">🧖‍♀️</span></span>
+        <span class="text-sm">&copy; 2024 Fleur Harding Facialist. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Animate On Scroll -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Swiper for Testimonials Carousel -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css"/>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    // Animate On Scroll
+    AOS.init({
+      duration: 900,
+      once: true,
+      offset: 80,
+    });
+
+    // Testimonials Swiper
+    new Swiper('#testimonialSwiper', {
+      slidesPerView: 1,
+      loop: true,
+      autoplay: {
+        delay: 4200,
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      allowTouchMove: false,
+      pagination: false,
+      navigation: false,
+    });
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    const html = document.documentElement;
+    function setDarkMode(dark) {
+      if (dark) html.classList.add('dark');
+      else html.classList.remove('dark');
+    }
+    darkToggle.addEventListener('click', () => {
+      const isDark = html.classList.contains('dark');
+      setDarkMode(!isDark);
+    });
+    // Respect system preference on load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode(true);
+      }
+    });
+
+    // Contact form validation
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      let valid = true;
+      // Name
+      const name = document.getElementById('name');
+      const nameErr = document.getElementById('nameErr');
+      if (!name.value.trim()) {
+        nameErr.classList.remove('hidden');
+        valid = false;
+      } else {
+        nameErr.classList.add('hidden');
+      }
+      // Email
+      const email = document.getElementById('email');
+      const emailErr = document.getElementById('emailErr');
+      if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+        emailErr.classList.remove('hidden');
+        valid = false;
+      } else {
+        emailErr.classList.add('hidden');
+      }
+      // Message
+      const msg = document.getElementById('msg');
+      const msgErr = document.getElementById('msgErr');
+      if (!msg.value.trim()) {
+        msgErr.classList.remove('hidden');
+        valid = false;
+      } else {
+        msgErr.classList.add('hidden');
+      }
+      if (valid) {
+        document.getElementById('successMsg').classList.remove('hidden');
+        setTimeout(()=>{document.getElementById('successMsg').classList.add('hidden');}, 4000);
+        this.reset();
+      }
+    });
+  </script>
+  <style>
+    /* Ken Burns effect for hero image */
+    @keyframes kenburns {
+      0%    { transform: scale(1) translateY(0px);}
+      100%  { transform: scale(1.09) translateY(-12px);}
+    }
+    .animate-\[kenburns_24s_linear_infinite_alternate\] {
+      animation: kenburns 24s linear infinite alternate;
+    }
+    /* Font family utilities */
+    .font-lora { font-family: 'Lora', serif !important;}
+  </style>
+</body>
+</html>
