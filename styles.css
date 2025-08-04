@@ -1,0 +1,257 @@
+:root {
+  --accent: #85B09A;
+  --accent-light: #C6D9CE;
+  --primary: #fff;
+  --glass-bg: rgba(255,255,255,0.70);
+  --glass-blur: 18px;
+  --shadow: 0 8px 32px 0 rgba(60,80,70,0.10);
+  --radius: 22px;
+  --text-main: #335244;
+  --text-soft: #6B8C7C;
+  --bg1: hsl(0, 20, 99);
+  --bg2: #eee;
+  --cta-gradient: linear-gradient(270deg, #85B09A 0%, #C6D9CE 50%, #85B09A 100%);
+  --cta-shadow: 0 6px 32px 0 rgba(133,176,154,0.14), 0 2px 8px 0 rgba(133,176,154,0.08);
+  --cta-glow: 0 0 22px 3px rgba(133,176,154,0.36);
+  --cta-radius: 2.3em;
+  --cta-text: #335244;
+  --cta-text-hover: #fff;
+  --cta-bg-hover: linear-gradient(90deg, #C6D9CE 0%, #85B09A 100%);
+  --cta-sublabel-bg: rgba(255,255,255,0.13);
+}
+
+body {
+  font-family: 'Outfit', 'Playfair Display', serif;
+  background: var(--bg1);
+}
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--accent-light);
+}
+
+/* Subtle animated noise overlay */
+#noise-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+}
+.hero-bg {
+  background: var(--bg2);
+}
+.logoimg {
+  width: auto;
+  height: 50px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.3rem;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+.testimonial-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+.testimonial-author {
+  font-family: 'Outfit', sans-serif;
+  color: var(--accent-light);
+  font-size: 1rem;
+  margin-top: 0.7rem;
+  letter-spacing: 0.01em;
+}
+
+/* Modern CTA Button */
+.cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.25em 2.4em;
+  font-size: 1.18rem;
+  font-weight: 800;
+  border-radius: var(--cta-radius);
+  border: 2.3px solid rgba(198,217,206,0.28);
+  background: var(--cta-gradient);
+  background-size: 200% 200%;
+  color: var(--cta-text);
+  box-shadow: var(--cta-shadow);
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Outfit', sans-serif;
+  text-shadow: 0 2px 12px rgba(198,217,206,0.08);
+  backdrop-filter: blur(6px);
+  transition: 
+    box-shadow 0.2s,
+    transform 0.15s,
+    background 0.23s,
+    color 0.23s;
+  animation: cta-gradient-move 4s ease-in-out infinite;
+}
+@keyframes cta-gradient-move {
+  0%,100% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+}
+.cta-btn .cta-icon {
+  font-size: 1.5em;
+  margin-right: 0.5em;
+  animation: cta-icon-bounce 2s infinite cubic-bezier(.41,1.7,.63,1.11);
+}
+@keyframes cta-icon-bounce {
+  0%,100% { transform: translateY(0) scale(1);}
+  40%    { transform: translateY(-6px) scale(1.1);}
+  60%    { transform: translateY(-10px) scale(1.15);}
+  80%    { transform: translateY(-2px) scale(1.06);}
+}
+.cta-btn .cta-sublabel {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #4C8367;
+  background: var(--cta-sublabel-bg);
+  padding: 4px 14px;
+  border-radius: 1.7em;
+  margin-left: 1em;
+  margin-top: -0.5em;
+  box-shadow: 0 0 9px 0 rgba(198,217,206,0.11);
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.cta-btn:hover, .cta-btn:focus {
+  background: var(--cta-bg-hover);
+  color: var(--cta-text-hover);
+  box-shadow: var(--cta-glow), var(--cta-shadow);
+  transform: scale(1.054) translateY(-2px);
+}
+.cta-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 3px rgba(60,80,70,0.18);
+}
+.cta-btn:focus-visible {
+  outline: 3px solid #85B09A;
+  outline-offset: 2px;
+}
+
+/* Ripple effect */
+.cta-btn .cta-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(133,176,154, 0.22);
+  animation: cta-ripple 0.6s linear;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes cta-ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+@media (max-width:600px) {
+  .cta-btn { font-size: 1.01rem; padding: 0.8em 1.2em;}
+  .cta-btn .cta-sublabel { font-size: 0.76rem; margin-left:0.4em; }
+}
+
+/* .btn styles for other buttons remain unchanged (commented out or not used on cta-btn) */
+
+/* --- the rest of your CSS below remains unchanged --- */
+
+.voucher-container {
+  display: grid;
+  grid-template-columns: 25% 70%;
+  width: 100%;
+  background-color: #E6CF95;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 1em;
+  align-items: center;
+  gap: 1em;
+}
+
+.voucher-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background-color: var(--bg2);
+}
+
+/*facial-container*/
+.facial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  column-gap: 1.2rem;
+  row-gap: 1.2rem;
+  background-color: var(--bg2);
+  padding: 1.5rem;
+}
+
+.facial-container > div {
+  background-color: var(--bg2);
+  border: 1px solid black;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.no-border-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  column-gap: 1.2rem;
+  row-gap: 1.2rem;
+  background-color: var(--bg2);
+  max-width: 800px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.no-border-container > div {
+  background-color: var(--bg2);
+  border: none;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.pricelist {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: clamp(1rem, 2vw, 2rem);
+  padding: 10px;
+}
+
+.pricing {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+img {
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+@media(max-width:600px) {
+  .section-title { font-size:1.35rem; }
+}

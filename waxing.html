@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facials on Waiheke Island</title>
+  <!-- Google Fonts: Feminine, elegant -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS for fade animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="relative hero-bg">
+  <canvas id="noise-canvas"></canvas>
+  <!-- Header/Nav -->
+  <header class="z-10 sticky top-0 bg-white/60 backdrop-blur-lg border-b border-[var(--accent-light)]">
+    <nav class="max-w-5xl mx-auto flex justify-between items-center px-4 py-4">
+      <div class="flex items-center gap-2">
+        <span class="logoimg flex items-center">
+  <img src="images/logoIdea.png" alt="Logo" class="h-20 w-auto block" />
+</span>
+        <span class="font-bold text-[var(--text-main)] text-lg tracking-wide" style="font-family:'Playfair Display',serif;">Facials on Waiheke Island</span>
+      </div>
+      <div class="hidden md:flex gap-7 text-[var(--accent)] font-semibold text-base">
+       <a href="index.html" class="hover:text-[var(--text-main)] transition">Home</a>
+        <a href="index.html#about" class="hover:text-[var(--text-main)] transition">About</a>
+        <a href="index.html#services" class="hover:text-[var(--text-main)] transition">Services</a>
+        <a href="index.html#testimonials" class="hover:text-[var(--text-main)] transition">Testimonials</a>
+        <a href="index.html#contact" class="hover:text-[var(--text-main)] transition">Contact</a>
+      </div>
+    </nav>
+  </header>
+ <body>
+  <main class="max-w-5xl mx-auto px-5 py-16">
+    <section>
+        <h2 class="section-title mb-4">Waxing</h2>
+        <blockquote class="text-[var(--text-main)] mb-2">Hot wax is used for sensitive areas and strip wax for legs and chest</blockquote>
+  <div class="pricelist">
+    <div class="pricing">
+    
+      <div class="text-[var(--text-main)] mb-2">Upper lip or chin</div>
+            <div class="text-[var(--text-main)] mb-2">$30.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">Bikini or underarm</div>
+            <div class="text-[var(--text-main)] mb-2">$38.00</div>
+
+      <div class="text-[var(--text-main)] mb-2">&frac12 leg or arm</div>
+            <div class="text-[var(--text-main)] mb-2">$45.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">Extended bikini</div>
+            <div class="text-[var(--text-main)] mb-2">$45.00</div>
+               
+            <div class="text-[var(--text-main)] mb-2">Thigh</div>
+            <div class="text-[var(--text-main)] mb-2">$55.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">Full back or chest</div>
+            <div class="text-[var(--text-main)] mb-2">$70.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">&frac12 Leg, bikini, or underarm</div>
+            <div class="text-[var(--text-main)] mb-2">$70.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">Full leg</div>
+            <div class="text-[var(--text-main)] mb-2">$75.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">Full leg, bikini, or underarm</div>
+            <div class="text-[var(--text-main)] mb-2">$85.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">Full leg, bikini, and underarm</div>
+            <div class="text-[var(--text-main)] mb-2">$95.00</div>
+
+            
+
+            
+     </div>
+       
+     </div>
+
+      
+         
+    </section>
+<!--Electrolysis-->
+
+    <section>
+   <h2 class="section-title mb-4">Electrolysis</h2>
+   <blockquote class="text-[var(--text-main)] mb-2">Advanced computerized Blend Technique for permanent facial hair removal. Suitable for any hair colour.
+<strong><em>Free 15 mins Consultation</em></strong></blockquote>
+  
+<div class="pricelist">
+    <div class="pricing">
+    
+      <div class="text-[var(--text-main)] mb-2">15 minutes</div>
+            <div class="text-[var(--text-main)] mb-2">$48.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">30 minutes</div>
+            <div class="text-[var(--text-main)] mb-2">$65.00</div>
+
+      <div class="text-[var(--text-main)] mb-2">45 minutes</div>
+            <div class="text-[var(--text-main)] mb-2">$90.00</div>
+
+            <div class="text-[var(--text-main)] mb-2">60 minutes</div>
+            <div class="text-[var(--text-main)] mb-2">$110.00</div>
+               
+                        
+     </div>
+       
+     </div>
+
+        
+      
+         
+      </section>
+
+<!--return and booking buttons-->
+ <section>
+  <div class="no-border-container max-w-4xl mx-auto">
+    
+    <div>
+      <button class="cta-btn" onclick="location.href='index.html#services';">
+  <span class="cta-icon" aria-hidden="true">✨</span>
+  <span class="cta-text">Services menu</span>
+  
+  <span class="cta-ripple"></span>
+</button>
+    </div>
+
+    <div>
+      <button class="cta-btn" onclick="location.href='index.html#contact';">
+  <span class="cta-icon" aria-hidden="true">✨</span>
+  <span class="cta-text">Book a Hair Removal</span>
+  
+  <span class="cta-ripple"></span>
+</button>
+    </div>
+
+  </div>
+</section>
+    </main>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-[var(--accent-light)] text-sm bg-white/40 mt-10 glass">
+    &copy; 2024 Facials on Waiheke. Website by Marius Strydom, marius@aptwrite.nz.
+  </footer>
+  <!-- Animated noise for glass texture -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

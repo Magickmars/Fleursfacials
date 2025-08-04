@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facials on Waiheke Island</title>
+  <!-- Google Fonts: Feminine, elegant -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS for fade animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="relative hero-bg">
+  <canvas id="noise-canvas"></canvas>
+  <!-- Header/Nav -->
+  <header class="z-10 sticky top-0 bg-white/60 backdrop-blur-lg border-b border-[var(--accent-light)]">
+    <nav class="max-w-5xl mx-auto flex justify-between items-center px-4 py-4">
+      <div class="flex items-center gap-2">
+        <span class="logoimg flex items-center">
+  <img src="images/logoIdea.png" alt="Logo" class="h-20 w-auto block" />
+</span>
+        <span class="font-bold text-[var(--text-main)] text-lg tracking-wide" style="font-family:'Playfair Display',serif;">Facials on Waiheke Island</span>
+      </div>
+      <div class="hidden md:flex gap-7 text-[var(--accent)] font-semibold text-base">
+        <a href="index.html" class="hover:text-[var(--text-main)] transition">Home</a>
+        <a href="index.html#about" class="hover:text-[var(--text-main)] transition">About</a>
+        <a href="index.html#services" class="hover:text-[var(--text-main)] transition">Services</a>
+        <a href="index.html#testimonials" class="hover:text-[var(--text-main)] transition">Testimonials</a>
+        <a href="index.html#contact" class="hover:text-[var(--text-main)] transition">Contact</a>
+      </div>
+    </nav>
+  </header>
+  
+<main class="max-w-5xl mx-auto px-5 py-16">
+    <!--Signature Facials-->
+<section>
+    <h2 class="section-title mb-4">Signature Facials</h2>
+    <div class="facial-container">
+      <!-- Facial 1 -->
+      <div>
+        <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Soothing Radiance</h3>
+        <div class="text-[var(--text-main)] mb-2">A personalised facial for all skin types and ages. Includes exfoliation, a relaxing massage, and treatment mask. Perfect as a gift voucher.</div>
+        <div class="font-regular text-[var(--text-soft)] mb-2">$160.00</div>
+        <div class="text-[var(--text-soft)] mb-2">75 mins</div>
+      </div>
+      <!-- Facial 2 -->
+      <div>
+        <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Men's Facial</h3>
+        <div class="text-[var(--text-main)] mb-2">A deep-cleansing facial tailored for men’s skin. Targets oil, congestion, and shaving sensitivity with enzyme exfoliation, serum, and a treatment mask.</div>
+        <div class="font-regular text-[var(--text-soft)] mb-2">$145.00</div>
+        <div class="text-[var(--text-soft)] mb-2">60 mins</div>
+      </div>
+      <!-- Facial 3 -->
+      <div>
+        <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Ultimate Indulgence</h3>
+        <div class="text-[var(--text-main)] mb-2">A luxurious, hands-on facial with no machines. Includes aromatic serums, hot towels, full massage (shoulders, neck, face, feet), and a glow-boosting mask.</div>
+        <div class="font-regular text-[var(--text-soft)] mb-2">$175.00 / 75 mins</div>
+        <div class="text-[var(--text-soft)] mb-2">$195.00 / 90 mins</div>
+      </div>
+      
+    </div>
+    
+  </section>
+  <!--Advanced Facials-->
+<section>
+    <h2 class="section-title mb-4">Advanced Facials</h2>
+    <blockquote class="text-[var(--text-main)] mb-2">Boost your facial results with Environ DF technology, which combines iontophoresis and sonophoresis to infuse vitamins A, C, A, and peptides deep into the skin. This non-invasive technology targets fine lines, pigmentation, scarring, and dryness. Experience this with Fleur's signature pampering touch.</blockquote>
+    
+        <p class="font-bold text-[var(--text-main)] md:text-xl lg:text-2xl mb-2" style="font-family:'Playfair Display',serif;">$195.00 / 90 mins</p>
+     
+      
+      <div class="facial-container">
+       <!--Youthful Glow -->
+        <div>
+        <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Youthful Glow</h3>
+        <div class="text-[var(--text-main)] mb-2">A luxurious peptide and vitamin-infused facial to lift firm and visibly soften fine lines and sun-damage. Reignite your skin’s youthful glow with this rejuvenating treatment</div>
+        
+      </div>
+        <!-- Deep Hydration Boost -->
+      <div>
+        <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Deep Hydration Boost</h3>
+        
+        <div class="text-[var(--text-main)] mb-2">An intensive Hyaluronic Acid infusion Treatment. Reduces the appearance of fine lines caused by dehydration and increases the plumpness of the deeper layers of the skin. Dewy and glowing.</div>
+        <!--<div class="font-regular text-[var(--text-soft)] mb-2">$145.00</div>
+        <div class="text-[var(--text-soft)] mb-2">60 mins</div>-->
+      </div>
+      <!-- Radiance Reveal -->
+      <div>
+        <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Radiance Reveal</h3>
+        <div class="text-[var(--text-main)] mb-2">A targeted solution for sun-damaged or pigmented skin. A combination of Vitamin C and/or Lactic acid-based ingredients will reveal a brighter, more even complexion. Helps to rebuild the skin's immune system.</div>
+        <!--<div class="font-regular text-[var(--text-soft)] mb-2">$175.00 / 75 mins</div>
+        <div class="text-[var(--text-soft)] mb-2">$195.00 / 90 mins</div>-->
+      </div>
+      <!--Calm and Restore-->
+      <div>
+      <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Calm and Restore</h3>
+        <div class="text-[var(--text-main)] mb-2">Soothe and restore sensitive or irritated skin with this deeply comforting facial. Designed to reduce redness and boost the skin’s resilience – all while you drift into total relaxation.</div>
+        <!--<div class="font-regular text-[var(--text-soft)] mb-2">$175.00 / 75 mins</div>
+        <div class="text-[var(--text-soft)] mb-2">$195.00 / 90 mins</div>-->
+      </div>
+      <!--Volume Boost-->
+      <div>
+      <h3 class="font-bold text-[var(--text-main)] md:text-xl lg:text-3xl mb-2" style="font-family:'Playfair Display',serif;">Volume Boost</h3>
+        <div class="text-[var(--text-main)] mb-2">Soothe and restore sensitive or irritated skin with this deeply comforting facial. Designed to reduce redness and boost the skin’s resilience – all while you drift into total relaxation.</div>
+        <!--<div class="font-regular text-[var(--text-soft)] mb-2">$175.00 / 75 mins</div>
+        <div class="text-[var(--text-soft)] mb-2">$195.00 / 90 mins</div>-->
+      </div>
+    </div>
+</section>
+
+<!--Focus-on Treatments-->
+    <section>
+    <h2 class="section-title mb-4">Focus-on Treatments</h2>
+    <blockquote class="text-[var(--text-main)] mb-2">Focus on fine lines/wrinkles, volume loss/laxity, pigmentation, uneven texture and diffused redness
+A targeted solution for intensive repair with a course of weekly or bi-weekly facials. Includes Dual technology DF machine.
+Focusing on a particular skin concern at a time can save you time in the long run so these 45 min facials are a great way to fast-track your results.</blockquote>
+<p class="font-bold text-[var(--text-main)] md:text-xl lg:text-2xl mb-2" style="font-family:'Playfair Display',serif;">Pay for 5 treatments and the 6th for free.</p>
+    
+    <div class="facial-container">
+      <!-- Facial 1 -->
+      <div>
+        
+        <div class="text-[var(--text-main)] mb-2">Pay for 5 treatments and get the 6th for free.</div>
+        
+        
+      </div>
+      <!-- Facial 2 -->
+      <div>
+        
+        <div class="text-[var(--text-main)] mb-2">$650.00 (Usually $750.00)</div>
+        
+      </div>
+
+    </div>
+
+  </section>
+  <section>
+<div>
+  <h2 class="section-title mb-4">Facial Add-Ons</h2>
+  <p class="text-[var(--text-main)] mb-2">Reduce wrinkled, sun damage, and dull skin with Electrol-Sonic DF Technologies and Cool Peels</p>
+  <ul class="mb-6 text-[var(--text-soft)] text-lg list-disc pl-6">
+    <li>Sonophoresis (soundwaves)</li>
+    <li>Ionophroseis (galvanic current)</li>
+    <li>Dual Rechnology (soundwaves/galvanic current)</li>
+    <li>Marine Algenate Peel of Mask (cool peels)</li>
+  </ul>
+</div>
+</section>
+<section>
+ <!--return and booking buttons-->
+ <section>
+  <div class="no-border-container max-w-4xl mx-auto">
+    <div>
+    <button class="cta-btn" onclick="location.href='index.html#services';">
+  <span class="cta-icon" aria-hidden="true">✨</span>
+  <span class="cta-text">Services menu</span>
+  
+  <span class="cta-ripple"></span>
+</button>
+    </div>
+
+    <div>
+      <button class="cta-btn" onclick="location.href='index.html#contact';">
+  <span class="cta-icon" aria-hidden="true">✨</span>
+  <span class="cta-text">Book a Facial</span>
+  
+  <span class="cta-ripple"></span>
+</button>
+
+  </div>
+
+  </div>
+
+
+  </section>
+  
+
+<footer class="py-8 text-center text-[var(--accent-light)] text-sm bg-white/40 mt-10 glass">
+    &copy; 2024 Facials on Waiheke. Website by Marius Strydom, marius@aptwrite.nz.
+  </footer>
+  <!-- Animated noise for glass texture -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="scripts.js"></script>
+</main>
+</body>
